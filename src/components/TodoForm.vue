@@ -1,20 +1,21 @@
 <script setup>
-  import { inject, ref } from 'vue';
+  import { ref } from 'vue';
+  import { useTodoListStore } from '@/stores/todoList'
 
   const todoText = ref("");
 
-  const addTodo = inject('addTodo');
+  const store = useTodoListStore();
 
-  const addItem = () => {
-    if (!todoText.value) return
-    addTodo(todoText.value)
-    todoText.value = ''
+  const addItem = (text) => {
+    if(text.length === 0) return
+    store.addTodo(text)
+    todoText.value= ''
   }
 </script>
 
 <template>
-  <form @submit.prevent="addItem">
-    <input type = "text" v-model="todoText">
+  <form @submit.prevent="addItem(todoText)">
+    <input type="text" v-model="todoText">
     <button>追加</button>
   </form>
 </template>
