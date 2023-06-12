@@ -1,10 +1,11 @@
 <script setup>
-  import { inject } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { useTodoListStore } from '@/stores/todoList';
 
-  const todoItemList = inject('todoItemList')
+  const store = useTodoListStore();
 
-  const isEmpty = inject('isEmpty')
-  const deleteTodo = inject('deleteTodo')
+  const { todoItemList, isEmpty } = storeToRefs(store)
+  const { deleteTodo } = store
 </script>
 
 <template>
