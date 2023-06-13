@@ -29,7 +29,12 @@ const router = createRouter({
       name: 'posts',
       component: () => import('../views/PostListView.vue')
     },
+    {
+      path: '/users',
+      name: 'users',
+      component: () => import('../views/UserListView.vue')
+    },
   ]
 })
- 
+
 export default router

@@ -18,6 +18,9 @@
       <li>
         <RouterLink to="/posts">Posts</RouterLink>
       </li>
+      <li>
+        <RouterLink to="/users">Users</RouterLink>
+      </li>
     </ul>
   </nav>
   <RouterView /><!-- この部分に現在のパスにマッチしたコンポーネントが描画される -->
