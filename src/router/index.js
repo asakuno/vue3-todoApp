@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'todo',
       component: () => import('../components/TodoApp.vue')
     },
+    {
+      path: '/posts',
+      name: 'posts',
+      component: () => import('../views/PostListView.vue')
+    },
   ]
 })
  
