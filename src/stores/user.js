@@ -1,10 +1,19 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { usePostStore } from "./post";
+
+
 
 export const useUserStore = defineStore("user",()=> {
   const users = ref([])
   const loading = ref(false)
   const error = ref(null)
+
+
+  const getPostUser = (state) => {
+    const postStore = usePostStore();
+    return state.users.find((user) => user.id === postStore.post.userId)
+  }
 
   const fetchUsers = async () => {
     users.value = [];
@@ -21,5 +30,5 @@ export const useUserStore = defineStore("user",()=> {
     }
   }
 
-  return { users, loading, error, fetchUsers }
+  return { users, loading, error, fetchUsers, getPostUser }
 })
